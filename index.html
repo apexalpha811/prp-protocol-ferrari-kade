@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best PRP Protocol - Ferrari Optimized</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --rosso-corsa: #FF2800;
+            --giallo-modena: #FFD700;
+            --nero: #050505;
+            --carbon: #121212;
+            --white: #FFFFFF;
+            --gray: #A0A0A0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--nero);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, rgba(5,5,5,1) 0%, rgba(20,20,20,1) 100%),
+                        url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAIklEQVQIW2NkQAKrVq36z4guwcbGxpGbm/sfhtgsGDBis2AAQH8YCtDqnJIAAAAASUVORK5CYII=');
+            background-blend-mode: overlay;
+            position: relative;
+            padding-bottom: 50px;
+            box-shadow: 0 0 50px rgba(255, 40, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 400px;
+            background: url('background.png') center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            border-bottom: 5px solid var(--rosso-corsa);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(0deg, var(--nero) 0%, transparent 100%);
+        }
+
+        .hero-text {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-style: italic;
+            letter-spacing: -2px;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .hero-text h1 span {
+            color: var(--rosso-corsa);
+        }
+
+        .badge {
+            background-color: var(--giallo-modena);
+            color: var(--nero);
+            display: inline-block;
+            padding: 5px 15px;
+            font-weight: 900;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            transform: skew(-10deg);
+        }
+
+        /* Content Sections */
+        .content {
+            padding: 40px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-left: 4px solid var(--rosso-corsa);
+            padding-left: 15px;
+            margin-bottom: 25px;
+            margin-top: 40px;
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .intro-box {
+            background: var(--carbon);
+            border: 1px solid #333;
+            padding: 25px;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background-color: var(--rosso-corsa);
+        }
+
+        .comparison {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .comp-item {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .comp-item .value {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--rosso-corsa);
+        }
+
+        .comp-item .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            letter-spacing: 1px;
+        }
+
+        /* Table Design */
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--carbon);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #222;
+            color: var(--rosso-corsa);
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            text-align: left;
+            padding: 15px;
+            border-bottom: 2px solid var(--rosso-corsa);
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .step-num {
+            color: var(--giallo-modena);
+            font-weight: 700;
+            margin-right: 10px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Variables Grid */
+        .variables-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .var-card {
+            background: rgba(255,255,255,0.05);
+            padding: 20px;
+            border-radius: 4px;
+            border-top: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .var-card:hover {
+            border-top-color: var(--rosso-corsa);
+        }
+
+        .var-card h3 {
+            color: var(--giallo-modena);
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background: linear-gradient(45deg, #111, #222);
+            padding: 30px;
+            text-align: center;
+            border: 1px dashed #444;
+            margin-top: 20px;
+        }
+
+        .formula {
+            font-family: monospace;
+            font-size: 1.2rem;
+            color: var(--white);
+            background: #000;
+            padding: 10px 20px;
+            display: inline-block;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        /* TL;DR Section */
+        .tldr {
+            background: var(--rosso-corsa);
+            color: var(--white);
+            padding: 40px;
+            margin-top: 50px;
+            position: relative;
+            clip-path: polygon(0 0, 100% 5%, 100% 100%, 0 95%);
+        }
+
+        .tldr h2 {
+            text-transform: uppercase;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .tldr p {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media print {
+            body { background: white; color: black; }
+            .container { box-shadow: none; width: 100%; max-width: 100%; }
+            .hero { -webkit-print-color-adjust: exact; }
+            .tldr { -webkit-print-color-adjust: exact; }
+            .rosso-corsa { color: #FF2800 !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="badge">Performance Protocol</div>
+                <h1>PRP <span>Optimization</span></h1>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="intro-box">
+                <p>The Double-spin method consistently outperforms single-spin by a significant margin, achieving maximum platelet concentration for superior clinical outcomes.</p>
+                
+                <div class="comparison">
+                    <div class="comp-item">
+                        <div class="label">Single Spin</div>
+                        <div class="value">2-3&times;</div>
+                        <div class="label">Baseline</div>
+                    </div>
+                    <div class="comp-item" style="border-left: 1px solid #333;">
+                        <div class="label" style="color: var(--rosso-corsa);">Double Spin</div>
+                        <div class="value">4-6&times;</div>
+                        <div class="label">Baseline</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">The Optimized Protocol <span style="font-weight: 400; font-size: 0.9rem; color: var(--gray); text-transform: none; font-style: normal; margin-left: 10px;">(Amable et al., 2013)</span></h2>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Step</th>
+                            <th>g-force</th>
+                            <th>Time</th>
+                            <th>Temp</th>
+                            <th>Brake</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="step-num">01</span> Spin 1 (Soft)</td>
+                            <td>300 g</td>
+                            <td>5 min</td>
+                            <td>RT</td>
+                            <td>Off</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="background: rgba(255,255,255,0.02); font-size: 0.9rem; color: var(--gray);">
+                                &rarr; Discard RBC layer, keep plasma + buffy coat
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="step-num">02</span> Spin 2 (Hard)</td>
+                            <td>700 g</td>
+                            <td>17 min</td>
+                            <td>RT</td>
+                            <td>Off</td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="background: rgba(255,255,255,0.02); font-size: 0.9rem; color: var(--gray);">
+                                &rarr; Discard PPP (top), keep platelet pellet, resuspend in ~1 mL residual plasma
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 20px; text-align: right;">
+                <span style="font-weight: 900; color: var(--rosso-corsa); font-size: 1.2rem;">RESULT: ~1,288 &times; 10&sup3; platelets/&micro;L</span>
+            </div>
+
+            <h2 class="section-title">Key Variables That Matter</h2>
+            
+            <div class="variables-grid">
+                <div class="var-card">
+                    <h3>01. Brake Off</h3>
+                    <p>Using the centrifuge brake on the first spin disrupts the buffy coat layer and reduces yield. Always use brake-off or lowest brake setting.</p>
+                </div>
+                <div class="var-card">
+                    <h3>02. Rotor Type</h3>
+                    <p>Horizontal/swing-bucket rotors give cleaner separation than fixed-angle rotors. Fixed-angle rotors pack platelets against the tube wall.</p>
+                </div>
+                <div class="var-card">
+                    <h3>03. Temperature</h3>
+                    <p>Room temperature (20-24&deg;C) is standard. Cold temperatures can activate platelets prematurely.</p>
+                </div>
+                <div class="var-card">
+                    <h3>04. Tube Type</h3>
+                    <p>Glass tubes activate platelets. Use plastic (polypropylene or PET) tubes with anticoagulant (ACD-A or sodium citrate).</p>
+                </div>
+            </div>
+
+            <h2 class="section-title">Technical Specifications</h2>
+            <div class="formula-box">
+                <p>If your centrifuge only has RPM, use the standard conversion formula:</p>
+                <div class="formula">RCF = 1.118 &times; r &times; (RPM/1000)&sup2;</div>
+                <p style="font-size: 0.9rem; color: var(--gray);">For a typical 15 cm radius rotor (r = 150mm):</p>
+                <div style="display: flex; justify-content: center; gap: 40px; margin-top: 15px;">
+                    <div>
+                        <div style="color: var(--rosso-corsa); font-weight: 900;">300 g</div>
+                        <div style="font-size: 0.8rem;">~1,340 RPM</div>
+                    </div>
+                    <div>
+                        <div style="color: var(--rosso-corsa); font-weight: 900;">700 g</div>
+                        <div style="font-size: 0.8rem;">~2,040 RPM</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tldr">
+            <h2>The Verdict</h2>
+            <p>Maximum platelets/mL is achieved with 300 g &times; 5 min, then 700 g &times; 17 min, no brake, room temperature, in plastic tubes with ACD-A. Expect ~5-6&times; the whole blood platelet concentration.</p>
+        </div>
+
+        <div style="padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #333; margin-top: 40px; background: rgba(255,255,255,0.02);">
+            <div style="font-size: 0.7rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px;">
+                Technical Verification Required <br>
+                <span style="color: var(--white);">Optimized Clinical Standard</span>
+            </div>
+            <div style="text-align: right;">
+                <div style="font-family: 'Outfit'; font-weight: 900; font-style: italic; color: var(--rosso-corsa); font-size: 1.8rem; transform: skew(-10deg); letter-spacing: -1px; line-height: 1;">KADE</div>
+                <div style="font-size: 0.6rem; color: var(--gray); text-transform: uppercase; margin-top: 5px;">Chief Protocol Architect</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            PRP OPTIMIZATION PROTOCOL // CREATED BY KADE
+        </div>
+    </div>
+</body>
+</html>
