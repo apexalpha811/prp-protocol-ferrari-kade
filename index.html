@@ -276,6 +276,36 @@
             letter-spacing: 2px;
         }
 
+        @media (max-width: 600px) {
+            .hero { height: 250px; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .content { padding: 20px; }
+            .comparison { flex-direction: column; }
+            .comp-item { border-left: none !important; border-top: 1px solid #333; margin-top: 10px; }
+            .variables-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 1.2rem; }
+            
+            /* Responsive Table */
+            .table-container table, 
+            .table-container thead, 
+            .table-container tbody, 
+            .table-container th, 
+            .table-container td, 
+            .table-container tr { display: block; }
+            .table-container thead tr { position: absolute; top: -9999px; left: -9999px; }
+            .table-container tr { border-bottom: 2px solid var(--rosso-corsa); margin-bottom: 10px; }
+            .table-container td { border: none; position: relative; padding-left: 50%; text-align: right; }
+            .table-container td:before { 
+                content: attr(data-label); 
+                position: absolute; left: 15px; width: 45%; 
+                padding-right: 10px; white-space: nowrap; 
+                text-align: left; font-weight: 900; color: var(--rosso-corsa); 
+                text-transform: uppercase; font-size: 0.7rem;
+            }
+            .table-container td[colspan="5"] { text-align: left; padding-left: 15px; }
+            .table-container td[colspan="5"]:before { display: none; }
+        }
+
         @media print {
             body { background: white; color: black; }
             .container { box-shadow: none; width: 100%; max-width: 100%; }
@@ -327,11 +357,11 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="step-num">01</span> Spin 1 (Soft)</td>
-                            <td>300 g</td>
-                            <td>5 min</td>
-                            <td>RT</td>
-                            <td>Off</td>
+                            <td data-label="Step"><span class="step-num">01</span> Spin 1 (Soft)</td>
+                            <td data-label="g-force">300 g</td>
+                            <td data-label="Time">5 min</td>
+                            <td data-label="Temp">RT</td>
+                            <td data-label="Brake">Off</td>
                         </tr>
                         <tr>
                             <td colspan="5" style="background: rgba(255,255,255,0.02); font-size: 0.9rem; color: var(--gray);">
@@ -339,11 +369,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><span class="step-num">02</span> Spin 2 (Hard)</td>
-                            <td>700 g</td>
-                            <td>17 min</td>
-                            <td>RT</td>
-                            <td>Off</td>
+                            <td data-label="Step"><span class="step-num">02</span> Spin 2 (Hard)</td>
+                            <td data-label="g-force">700 g</td>
+                            <td data-label="Time">17 min</td>
+                            <td data-label="Temp">RT</td>
+                            <td data-label="Brake">Off</td>
                         </tr>
                         <tr>
                             <td colspan="5" style="background: rgba(255,255,255,0.02); font-size: 0.9rem; color: var(--gray);">
